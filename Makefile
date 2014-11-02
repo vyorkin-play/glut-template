@@ -7,14 +7,12 @@ INC := -I include
 
 BIN_DIR := bin
 SRC_DIR := src
-BUILD_DIR := build
 
 TARGET := $(BIN_DIR)/demo
 
 SRC_EXT := cpp
 
 SOURCES := $(shell find $(SRC_DIR) -type f -name *.$(SRC_EXT))
-OBJECTS := $(patsubst $(SRC_DIR)/%,$(BUILD_DIR)/%,$(SOURCES:.$(SRC_EXT)=.o))
 
 demo: $(TARGET)
 	@echo 'running ticket'
@@ -26,6 +24,6 @@ $(TARGET): $(SOURCES)
 
 clean:
 	@echo 'cleaning...' 
-	$(RM) -r $(BUILD_DIR) $(TARGET)
+	$(RM) -r $(TARGET)
 
 .PHONY: clean
